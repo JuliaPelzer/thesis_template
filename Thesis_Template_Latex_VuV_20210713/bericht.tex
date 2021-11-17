@@ -1,0 +1,96 @@
+%##########################################################################
+%                                               
+%						 Latex-Vorlage des VuV
+%
+%            für Studienarbeiten
+%			 Autor: Julia Pelzer, 2021
+%
+%##########################################################################
+
+%##########################################################################
+% Formatierungsoptionen
+
+\documentclass[12pt,a4paper,twoside]{report}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} %falls die Schriftdarstellung bei Kompilierung unter Windows % schlecht aussieht, dieses auskommentieren
+%\usepackage[german]{babel} %auskommentieren, wenn englisches Dokument
+\usepackage[english]{babel} %einkommentieren, wenn englisches Dokument
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{a4}
+\usepackage{graphicx}
+\usepackage{algorithmic,algorithm}
+\usepackage{subfigure}
+
+\usepackage{uarial} %Schriftart
+\usepackage[a4paper,lmargin={2cm},rmargin={2.5cm},tmargin={2.5cm},bmargin = {2.5cm}]{geometry} %Ergänzung für Anforderungen VuV an Seitenformat
+\linespread{1.2} %Ergänzung durch Anforderung VuV Zeilenabstand
+\usepackage[colorlinks,pdfpagelabels,pdfstartview = FitH,bookmarksopen = true,bookmarksnumbered = true,linkcolor = black,plainpages = false,hypertexnames = false,citecolor = black]{hyperref}
+\usepackage{caption}
+\usepackage[singlelinecheck=false, justification=RaggedRight, format=plain]{caption} %Anpassung der Bild- und Tabellenbeschriftungen
+% ############################################################################
+% Inverse Suche mit xdvi und kile:
+\usepackage{srcltx}
+
+% Seitenstil
+\pagestyle{headings}
+
+% Abstand zwischen Abs"atzen
+\setlength{\parskip}{1.5ex}
+
+% Einr"uckung der ersten Zeile eines Absatzes unterdr"ucken
+\setlength{\parindent}{0pt}
+
+% Grosszuegigere Wortabstaende
+\sloppy
+
+% Damit Bilder m"oglichst da sind, wo man sie will
+\setcounter{topnumber}{20}
+\setcounter{bottomnumber}{20}
+\setcounter{totalnumber}{20}
+\renewcommand{\topfraction}{.9999}
+\renewcommand{\bottomfraction}{.9999}
+\renewcommand{\textfraction}{0}
+
+%###########################################################################
+% Bearbeitung von einzelnen Kapiteln
+
+%\includeonly{bericht1Introduction}
+%###########################################################################
+
+\begin{document}
+
+\include{berichttitle_ENG} % include for English version
+%\include{berichttitle_DE} % include for German version
+
+\include{bericht0Abstract}\thispagestyle{empty}
+
+\include{berichtErklaerung_ENG}\thispagestyle{empty} % include for English version
+%\include{berichtErklaerung_DE}\thispagestyle{empty} % include for German version
+
+% Inhalt auf der rechten Seite beginnen
+\thispagestyle{empty}\cleardoublepage
+% Raendereinstellungen fuer Doppelseitigen Ausdruck
+%\evensidemargin=2pt
+%\oddsidemargin=40pt
+
+\pagenumbering{roman}
+\include{berichttoc}\cleardoublepage % automatically generated table of contents
+
+\pagenumbering{arabic}
+\include{bericht1Introduction}
+\include{bericht2Basics}
+\include{bericht3Analysis}
+\include{bericht4Summary}
+\include{berichtapp}
+\listoffigures % automatically generated
+\listoftables % automatically generated
+
+\bibliographystyle{bib_style_file_VuV} %TODO gibts ne englische Version? was tut das?
+\bibliography{Own_Library}
+% \include{berichtbib} % if sources should be added manually, then insert them in berichtbib instead of Own_Library (not recommended!)
+
+\end{document}
+
+%##########################################################################

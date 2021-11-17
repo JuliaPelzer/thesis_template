@@ -1,0 +1,40 @@
+%###########################################################################
+%
+%   Einleitung
+%
+%###########################################################################
+\chapter{Introduction}
+Text Text
+
+\section{Introduction into the usage of LaTeX}
+
+A \textbf{picture} is included like Figure~\ref{fig:Pic1}.
+\begin{figure}[hbtp] % hbtp tells Latex where to position the figure
+\centering % centers the picture horizontally
+\includegraphics[scale=0.5]{Pictures/isv_logo_weiss.png} %Put all pictures in one folder
+\caption[Exemplary picture]{Exemplary picture: The logo of the ISV institute.} %with [] a different description of the picture in the list of figures can be achieved than in the caption
+\label{fig:Pic1} % by this name the picture can be referenced in the text via \ref{}
+\end{figure}
+
+\textbf{Tables} are included like Table~\ref{tab:tablename}.
+\begin{table}[htbp]
+\caption{Exemplary table}
+\label{tab:tablename} % by this name the table can be referenced in the text via \ref{}
+\centering %centers the table horizontally
+\begin{tabular}[c]{l|l} % define here, how many columns there should be and whether the content shound be on the left ("l"), centered ("c"), on the right ("r") or with automatic line breaks ("p{width}")
+\hline
+\textbf{German} & \textbf{English (GB)} \\ \hline
+Nutzenfunktion & utility function \\
+Umlegung & apportionment \\
+\end{tabular}
+\end{table}
+
+An \textbf{equation} is included like Equation~\ref{eq:test}
+\begin{align}
+f(x) = c_1 \cdot x^2 + c_2 \cdot x + c_3
+\end{align}\label{eq:test}
+with parameters $c_1$, $c_2$ and $c_3$ and variable $x$.
+
+
+A \textbf{source} can be cited by~\cite{NachnameNachname22016} (Take a look at the .tex file). To update the references in the pdf (optical sign that it is necessary: you see a [?] where the source is supposed to be), in TexMaker between the two arrows select BibTex and press run (the left arrow), then PDFLaTeX, then BibTex, then PDFLaTeX, then Schnelles Übersetzen, to see the result. It thereby automatically appears in the Bibliography chapter.
+To activate \textit{autocomplete} for the available sources from your .bib file (created with Jabref or similar software), go to Bearbeiten -> Literaturverzeichnis aktualisieren.
